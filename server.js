@@ -1,48 +1,48 @@
 var express = require('express');
 var app = express();
 var mongojs = require('mongojs');
-var db = mongojs('contactlist', ['contactlist']);
+var db = mongojs('resume', ['resume']);
 var bodyParser = require('body-parser');
 
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.json());
 
-app.get('/contactlist', function (req, res) {
+app.get('/resume', function (req, res) {
   console.log('I received a GET request');
 
-  db.contactlist.find(function (err, docs) {
+  db.resume.find(function (err, docs) {
     console.log(docs);
     res.json(docs);
   });
 });
 
-app.post('/contactlist', function (req, res) {
+app.post('/resume', function (req, res) {
   console.log(req.body);
-  db.contactlist.insert(req.body, function(err, doc) {
+  db.resume.insert(req.body, function(err, doc) {
     res.json(doc);
   });
 });
 
-app.delete('/contactlist/:id', function (req, res) {
+app.delete('/resume/:id', function (req, res) {
   var id = req.params.id;
   console.log(id);
-  db.contactlist.remove({_id: mongojs.ObjectId(id)}, function (err, doc) {
+  db.resume.remove({_id: mongojs.ObjectId(id)}, function (err, doc) {
     res.json(doc);
   });
 });
 
-app.get('/contactlist/:id', function (req, res) {
+app.get('/resume/:id', function (req, res) {
   var id = req.params.id;
   console.log(id);
-  db.contactlist.findOne({_id: mongojs.ObjectId(id)}, function (err, doc) {
+  db.resume.findOne({_id: mongojs.ObjectId(id)}, function (err, doc) {
     res.json(doc);
   });
 });
 
-app.put('/contactlist/:id', function (req, res) {
+app.put('/resume/:id', function (req, res) {
   var id = req.params.id;
   console.log(req.body.name);
-  db.contactlist.findAndModify({
+  db.resume.findAndModify({
     query: {_id: mongojs.ObjectId(id)},
     update: {$set: {name: req.body.name, email: req.body.email, number: req.body.number}},
     new: true}, function (err, doc) {
