@@ -1,0 +1,23 @@
+body{
+  background-color: #7D1935;
+  font-size: 1.0em;
+  margin-left: 25%;
+  padding: 1em 1em 1em 1em;
+}
+
+.value{
+  background-color: #F5F3EE;
+  width: 50%;
+  font-family:  Verdana;
+}
+
+.headers{
+  background-color: #4A96AD;
+  width: 75%;
+  font-family: Verdana;
+}
+
+h1{
+  background-color: #FFFFFF;
+  width: 20%;
+}

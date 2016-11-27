@@ -1,37 +1,56 @@
 <!DOCTYPE>
 <html ng-app="myApp">
+<link rel="stylesheet" href="css/main.css">
 <head>
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
 
-<!-- Optional theme -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
 
-  <title>Resume App</title>
+<title>Resumé </title>
 </head>
 <body>
   <div class="container" ng-controller="AppCtrl">
-    <h1>Resume App</h1>
+    <h1>Resumé </h1>
 
-    <table class="table" name="education">
-      <thead>
-        <tr>
-          <th>School</th>
-          <th>Degree</th>
-          <th>Years Attended</th>
-          <th>&nbsp;</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr ng-repeat="resumeCell in resume">
-          <span ng-if="resume.type=='edu'">>
-            <td>{{resumeCell.school}}</td>
-            <td>{{resumeCell.degree}}</td>
-            <td>{{resumeCell.last_year}}</td>
-          </span>
-        </tr>
-      </tbody>
-    </table>
+              <div  class="value">
+                <div class="headers">
+                  <h2>Education<h2>
+                </div>
+                <div class="story" data-ng-repeat="resumeCell in resume |filter: {type: 'edu'} " >
+                  <!-- <span ng-if="type===edu"> -->
+                  School: {{resumeCell.school}}<br>
+                  Degree: {{resumeCell.degree}}<br>
+                  Final Year: {{resumeCell.last_year}}<br>
+                  <br>
+                <!-- </span> -->
+                </div>
+              </div>
+              <br>
+
+
+              <div  class="value">
+                <div class="headers">
+                  <h2>Skills<h2>
+                </div>
+                <div class="story" data-ng-repeat="resumeCell in resume |filter: {type: 'skill'} " >
+                  <!-- <span ng-if="type===edu"> -->
+                  Skill: {{resumeCell.skill}}
+                  <br>
+                <!-- </span> -->
+                </div>
+              </div>
+              <br>
+
+              <div  class="value">
+                <div class="headers">
+                  <h2>Projects<h2>
+                </div>
+                <div class="story" data-ng-repeat="resumeCell in resume |filter: {type: 'project'} " >
+                  <!-- <span ng-if="type===edu"> -->
+                  Tiltle: {{resumeCell.title}}<br>
+                  Description: {{resumeCell.description}}<br>
+                  <br>
+                <!-- </span> -->
+                </div>
+              </div>
 
   </div>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.12/angular.min.js"></script>
