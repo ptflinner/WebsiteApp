@@ -4,7 +4,13 @@ body{
   margin-left: 25%;
   padding: 1em 1em 1em 1em;
 }
-
+.about{
+  background-color: #F5F3EE;
+  border-style: solid;
+  border-width: medium;
+  border-color: #7D1935;
+  width: 50%;
+}
 .value{
   background-color: #F5F3EE;
   width: 50%;
